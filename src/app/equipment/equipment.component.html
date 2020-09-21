@@ -1,0 +1,39 @@
+<div style="text-align:center">
+    <h1>
+        Equipment List
+    </h1>
+
+    <div *ngIf="equipment.length > 0; else noequipment">
+        <div *ngFor="let equip of equipment">
+            <ul *ngIf="equip.active === true" style="list-style: none; border: 1px solid black">
+                <li>
+                    Active: {{equip.active}}
+                </li>
+                <li [ngStyle]="equip.manufacturer ?{'background-color':'white'} : {'background-color': '#F1C50D'}">
+                    Manufacturer: {{equip.manufacturer}}
+                </li>
+                <li>
+                    Model #: {{equip.model_number}}
+                </li>
+                <li>
+                    Serial #: {{equip.serial_number}}
+                </li>
+                <li>
+                    Equipment Type: {{equip.equipment_type}}
+                </li>
+                <li>
+                    Photos: {{equip.equipment_photos}}
+                </li>
+                <li>
+                    Description: {{equip.description}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ng-template #noequipment>
+    <p class>{{errorMessage}}</p>
+</ng-template>
+
+<router-outlet></router-outlet>

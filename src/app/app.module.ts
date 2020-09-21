@@ -7,11 +7,14 @@ import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BackendInterceptor} from './backend-interceptor/BackendInterceptor';
 import {HomeComponent} from './home/home.component';
+import {EquipmentComponent} from "./equipment/equipment.component";
+import {EquipmentService} from "./equipment/equipment.service";
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
+        EquipmentComponent,
     ],
     imports: [
         BrowserModule,
@@ -26,6 +29,7 @@ import {HomeComponent} from './home/home.component';
             useClass: BackendInterceptor,
             multi: true
         },
+        EquipmentService,
     ],
     bootstrap: [
         AppComponent,
