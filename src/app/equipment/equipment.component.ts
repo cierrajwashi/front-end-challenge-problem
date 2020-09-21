@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EquipmentService} from "./equipment.service";
-import {IEquipment} from "./equipment";
+import { EquipmentData} from "../backend-interceptor/EquipmentData";
 
 @Component({
     selector: 'app-equipment',
@@ -9,12 +9,12 @@ import {IEquipment} from "./equipment";
 })
 export class EquipmentComponent implements OnInit {
 
-    public equipment: IEquipment[] = [];
+    public equipment: EquipmentData[] = [];
     public errorMessage;
     constructor(private _employeeService: EquipmentService) {}
 
     ngOnInit(){
         this._employeeService.getEquipment()
-            .subscribe((data: IEquipment[]) => this.equipment = data, error=> this.errorMessage = `${error.message}, (error retrieving equipment)`)
+            .subscribe((data: EquipmentData[]) => this.equipment = data, error=> this.errorMessage = `${error.message}, (error retrieving equipment)`)
     }
 };
